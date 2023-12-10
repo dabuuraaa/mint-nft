@@ -14,6 +14,7 @@ import {
 import { useMemo } from "react";
 import { BigNumber, utils } from "ethers";
 import Image from "next/image";
+import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 
 export default function Home() {
   const contractAddress = "0xE4B62eCCd466DBCB6c9068eE0a7eCa8050592A3B";
@@ -91,13 +92,25 @@ export default function Home() {
               {isLoading ? (
                 <>loading...</>
               ) : (
-                <button
-                  onClick={() => claimNFT({ to: address, quantity: 1 })}
-                  type="button"
-                  className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                >
-                  Claim
-                </button>
+                <>
+                  <button
+                    onClick={() => claimNFT({ to: address, quantity: 1 })}
+                    type="button"
+                    className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                  >
+                    Claim
+                  </button>
+                  <CrossmintPayButton
+                    collectionId="6dfeb1f8-5fcb-48ac-b3a0-2508554688e6"
+                    projectId="c693355c-5c7a-4038-941d-4ac98d2de7a5"
+                    mintConfig={{
+                      type: "thirdweb-drop",
+                      totalPrice: "0.0",
+                      quantity: "1",
+                    }}
+                    environment="staging"
+                  />
+                </>
               )}
             </>
           ) : (

@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@crossmint/client-sdk-react-ui": "^1.1.2",
     "@thirdweb-dev/react": "^4.1.14",
     "@thirdweb-dev/sdk": "^4.0.21",
+    "add": "^2.0.6",
     "ethers": "^5",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "@types/node": "^20",
