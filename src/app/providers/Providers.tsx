@@ -16,6 +16,13 @@ export function Providers({ children }: { children: React.ReactNode }) {
         }),
         metamaskWallet(),
       ]}
+      sdkOptions={{
+        gasless: {
+          openzeppelin: {
+            relayerUrl: process.env.NEXT_PUBLIC_OPENZEPPELIN_URL || "",
+          },
+        },
+      }}
     >
       {children}
     </ThirdwebProvider>

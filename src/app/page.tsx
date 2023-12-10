@@ -10,6 +10,7 @@ import {
   useNFT,
   useUnclaimedNFTSupply,
   useClaimNFT,
+  Web3Button
 } from "@thirdweb-dev/react";
 import { useMemo } from "react";
 import { BigNumber, utils } from "ethers";
@@ -100,6 +101,14 @@ export default function Home() {
                   >
                     Claim
                   </button>
+                  <Web3Button
+                    contractAddress="0xE4B62eCCd466DBCB6c9068eE0a7eCa8050592A3B"
+                    action={(contract) => {
+                      contract.erc721.claim(1);
+                    }}
+                  >
+                    Gas Free Claim
+                  </Web3Button>
                   <CrossmintPayButton
                     collectionId="6dfeb1f8-5fcb-48ac-b3a0-2508554688e6"
                     projectId="c693355c-5c7a-4038-941d-4ac98d2de7a5"
